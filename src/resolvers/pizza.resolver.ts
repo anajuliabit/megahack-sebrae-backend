@@ -20,7 +20,7 @@ export default class PizzaResolver {
 
   @Query(() => [Pizza])
   public async filterPizza(@Args('type') type: EnumPizza): Promise<Pizza[]> {
-    return await this.repoService.pizzaRepo.find({ type });
+    return await this.repoService.pizzaRepo.find({ where: { type } });
   }
 
   @Mutation(() => Pizza)
