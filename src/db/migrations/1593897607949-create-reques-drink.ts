@@ -17,11 +17,6 @@ export class createRequesDrink1593897607949 implements MigrationInterface {
         generationStrategy: 'increment',
       },
       {
-        name: 'status',
-        type: 'integer',
-        isNullable: false,
-      },
-      {
         name: 'request_id',
         type: 'integer',
         isNullable: false,

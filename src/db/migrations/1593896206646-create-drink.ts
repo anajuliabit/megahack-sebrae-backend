@@ -26,6 +26,10 @@ export class createDrink1593896206646 implements MigrationInterface {
         isNullable: false,
       },
       {
+        name: 'url_image',
+        type: 'varchar',
+      },
+      {
         name: 'created_at',
         type: 'timestamptz',
         isNullable: false,

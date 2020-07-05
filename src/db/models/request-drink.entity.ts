@@ -1,3 +1,4 @@
+import { ObjectType, Field } from '@nestjs/graphql';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -5,26 +6,20 @@ import {
   CreateDateColumn,
   ManyToOne,
   JoinColumn,
-  OneToMany,
 } from 'typeorm';
-import { Field, ObjectType } from '@nestjs/graphql';
-import User from './user.entity';
 import Request from './request.entity';
+import Drink from './drink';
 
 @ObjectType()
-@Entity({ name: 'consumers' })
-export default class Consumer {
+@Entity({ name: 'request_drink' })
+export default class RequestDrink {
   @Field()
   @PrimaryGeneratedColumn()
   id: number;
 
   @Field()
   @Column()
-  name: string;
-
-  @Field()
-  @Column()
-  chair: number;
+  slice: number;
 
   @Field()
   @CreateDateColumn({ name: 'created_at ' })
@@ -35,16 +30,18 @@ export default class Consumer {
   updatedAt: Date;
 
   @ManyToOne(
-    () => User,
-    user => user.consumers,
+    () => Request,
+    request => request.requestsDrink,
     { primary: true },
   )
-  @JoinColumn({ name: 'user_id' })
-  user: Promise<User>;
+  @JoinColumn({ name: 'request_id' })
+  request: Promise<Request>;
 
-  @OneToMany(
-    () => Request,
-    requests => requests.consumer,
+  @ManyToOne(
+    () => Drink,
+    drink => drink.requestsDrink,
+    { primary: true },
   )
-  requests: Promise<Request[]>;
+  @JoinColumn({ name: 'drink_id' })
+  drink: Promise<Drink>;
 }
