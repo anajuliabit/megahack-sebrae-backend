@@ -18,7 +18,7 @@ export default class PizzaResolver {
     return await this.repoService.pizzaRepo.findOne(id);
   }
 
-  @Query(() => Pizza, { nullable: true })
+  @Query(() => [Pizza])
   public async filterPizza(@Args('type') type: EnumPizza): Promise<Pizza[]> {
     return await this.repoService.pizzaRepo.find({ type });
   }
