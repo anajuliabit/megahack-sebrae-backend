@@ -1,9 +1,7 @@
 import { Resolver, Args, Query, Mutation } from '@nestjs/graphql';
 import RepoService from 'src/repo.service';
-import Pizza from 'src/db/entity/pizza.entity';
+import Pizza, { StatusPizza, EnumPizza } from 'src/db/entity/pizza.entity';
 import PizzaInput from './input/pizza.input';
-import { EnumPizza } from '../db/entity/pizza.entity';
-
 @Resolver(Pizza)
 export default class PizzaResolver {
   constructor(private readonly repoService: RepoService) {}
@@ -19,8 +17,28 @@ export default class PizzaResolver {
   }
 
   @Query(() => [Pizza])
-  public async filterPizza(@Args('type') type: EnumPizza): Promise<Pizza[]> {
-    return await this.repoService.pizzaRepo.find({ where: { type } });
+  public async filterPizza(
+    @Args('types', { name: 'types', type: () => [EnumPizza], nullable: true })
+    types: EnumPizza[],
+    @Args('status', {
+      name: 'status',
+      type: () => [StatusPizza],
+      nullable: true,
+    })
+    status: StatusPizza[],
+  ): Promise<Pizza[]> {
+    let sql = 'SELECT * FROM pizza p';
+    if (types) {
+      const typesFormat = types.map(type => `'${type}'`).join(',');
+      sql += ` WHERE p.type IN (${typesFormat})`;
+    }
+    if (status) {
+      const statusFormat = status.map(status => `'${status}'`).join(',');
+      sql += types
+        ? `AND p.status IN (${statusFormat})`
+        : `WHERE p.status IN (${statusFormat})`;
+    }
+    return await this.repoService.pizzaRepo.query(sql);
   }
 
   @Mutation(() => Pizza)
