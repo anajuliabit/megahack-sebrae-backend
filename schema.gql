@@ -7,6 +7,7 @@ type Pizza {
   name: String!
   description: String!
   type: EnumPizza!
+  status: StatusPizza!
   urlImage: String!
 }
 
@@ -15,6 +16,13 @@ enum EnumPizza {
   DOCE
   VEGETARIANA
   ESPECIAL
+}
+
+enum StatusPizza {
+  WAITING
+  COOKING
+  READY
+  NEXT
 }
 
 type Consumer {
@@ -75,4 +83,5 @@ input PizzaInput {
   description: String!
   type: Float!
   urlImage: String!
+  status: Float!
 }

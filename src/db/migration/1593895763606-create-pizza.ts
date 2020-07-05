@@ -26,6 +26,11 @@ export class createPizza1593895763606 implements MigrationInterface {
         isNullable: false,
       },
       {
+        name: 'status',
+        type: 'integer',
+        isNullable: false,
+      },
+      {
         name: 'url_image',
         type: 'varchar',
       },

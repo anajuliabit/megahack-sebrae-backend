@@ -1,5 +1,5 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { EnumPizza } from 'src/db/entity/pizza.entity';
+import { EnumPizza, StatusPizza } from 'src/db/entity/pizza.entity';
 
 @InputType()
 export default class PizzaInput {
@@ -11,4 +11,6 @@ export default class PizzaInput {
   readonly type: EnumPizza;
   @Field()
   readonly urlImage: string;
+  @Field()
+  readonly status: StatusPizza;
 }

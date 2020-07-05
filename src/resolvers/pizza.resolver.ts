@@ -30,6 +30,7 @@ export default class PizzaResolver {
       description: input.description,
       type: input.type,
       urlImage: input.urlImage,
+      status: input.status,
     });
     return await this.repoService.pizzaRepo.save(pizza);
   }

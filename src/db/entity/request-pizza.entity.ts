@@ -12,13 +12,6 @@ import {
 import Request from './request.entity';
 import Pizza from './pizza.entity';
 
-enum StatusPizza {
-  Cooking,
-  Ready,
-  Next,
-  Waiting,
-}
-
 @ObjectType()
 @Entity({ name: 'request_pizza' })
 export default class RequestPizza {
@@ -29,10 +22,6 @@ export default class RequestPizza {
   @Field()
   @Column()
   slice: number;
-
-  @Field()
-  @Column()
-  status: StatusPizza;
 
   @Field()
   @CreateDateColumn({ name: 'created_at ' })

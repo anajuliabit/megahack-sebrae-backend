@@ -9,8 +9,19 @@ export enum EnumPizza {
   ESPECIAL,
 }
 
+export enum StatusPizza {
+  WAITING,
+  COOKING,
+  READY,
+  NEXT,
+}
+
 registerEnumType(EnumPizza, {
   name: 'EnumPizza',
+});
+
+registerEnumType(StatusPizza, {
+  name: 'StatusPizza',
 });
 @ObjectType()
 @Entity({ name: 'pizza' })
@@ -30,6 +41,10 @@ export default class Pizza {
   @Field(() => EnumPizza)
   @Column()
   type: EnumPizza;
+
+  @Field(() => StatusPizza)
+  @Column()
+  status: StatusPizza;
 
   @Field()
   @Column({ name: 'url_image' })

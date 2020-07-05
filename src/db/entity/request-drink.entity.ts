@@ -19,10 +19,6 @@ export default class RequestDrink {
   id: number;
 
   @Field()
-  @Column()
-  slice: number;
-
-  @Field()
   @CreateDateColumn({ name: 'created_at ' })
   createdAt: Date;
 

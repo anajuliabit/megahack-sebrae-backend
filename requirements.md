@@ -6,7 +6,7 @@
 - [x] O usuário deve inserir seu telefone, seu nome e sua mesa
 - [x] O usuário pode adicionar ou remover acompanhantes
 - [x] O usuário com a permissão de admin pode criar e excluir pizzas
-- [ ] O usuário pode listar e filtrar as pizzas por tipo (salgada, doce, vegetariana, especiais)
+- [x] O usuário pode listar e filtrar as pizzas por tipo (salgada, doce, vegetariana, especiais)
 - [ ] O usuário pode pedir uma ou mais fatias de pizza por pessoa
 - [ ] O usuário pode listar e filtrar as bebidas por tipo (refrigerante, suco, vinho, cerveja)
 - [ ] O usuário pode pedir uma ou mais bebida por pessoa
