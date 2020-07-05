@@ -8,7 +8,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import Consumer from './consumer.entity';
-import UserInput from 'src/resolvers/input/user.input';
 
 @ObjectType()
 @Entity({ name: 'users' })
@@ -39,7 +38,7 @@ export default class User {
 
   @OneToMany(
     () => Consumer,
-    consumers => consumers.user,
+    consumers => consumers.userConnection,
   )
-  consumers: Promise<Consumer[]>;
+  consumerConnection: Promise<Consumer[]>;
 }

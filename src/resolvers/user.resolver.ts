@@ -8,22 +8,22 @@ export default class UserResolver {
   constructor(private readonly repoService: RepoService) {}
 
   @Query(() => [User])
-  public async findAll(): Promise<User[]> {
-    return this.repoService.userRepo.find();
+  public async users(): Promise<User[]> {
+    return await this.repoService.userRepo.find({ relations: ['consumers'] });
   }
 
   @Query(() => User, { nullable: true })
-  public async find(@Args('id') id: number): Promise<User> {
-    return this.repoService.userRepo.findOne(id);
+  public async user(@Args('id') id: number): Promise<User> {
+    return await this.repoService.userRepo.findOne(id);
   }
 
   @Mutation(() => User)
   public async createUser(@Args('data') input: UserInput): Promise<User> {
-    const user = this.repoService.userRepo.create({
+    const user: User = this.repoService.userRepo.create({
       name: input.name,
       phone: input.phone,
       table: input.table,
     });
-    return this.repoService.userRepo.save(user);
+    return await this.repoService.userRepo.save(user);
   }
 }

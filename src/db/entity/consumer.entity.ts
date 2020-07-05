@@ -28,20 +28,19 @@ export default class Consumer {
   chair: number;
 
   @Field()
-  @CreateDateColumn({ name: 'created_at ' })
-  createdAt: Date;
+  @Column({ name: 'user_id' })
+  userId: number;
 
-  @Field()
-  @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt: Date;
+  @Field(() => User)
+  user: User;
 
   @ManyToOne(
     () => User,
-    user => user.consumers,
+    user => user.consumerConnection,
     { primary: true },
   )
   @JoinColumn({ name: 'user_id' })
-  user: Promise<User>;
+  userConnection: Promise<User>;
 
   @OneToMany(
     () => Request,

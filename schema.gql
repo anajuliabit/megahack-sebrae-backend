@@ -2,6 +2,14 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Consumer {
+  id: Float!
+  name: String!
+  chair: Float!
+  userId: Float!
+  user: User!
+}
+
 type User {
   id: Float!
   name: String!
@@ -17,16 +25,26 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Query {
-  findAll: [User!]!
-  find(id: Float!): User
+  users: [User!]!
+  user(id: Float!): User
+  consumers: [Consumer!]!
+  getConsumerFromUser(id: Float!): [Consumer!]!
+  consumer(id: Float!): Consumer
 }
 
 type Mutation {
   createUser(data: UserInput!): User!
+  createConsumer(data: ConsumerInput!): Consumer!
 }
 
 input UserInput {
   name: String!
   phone: Float!
   table: Float!
+}
+
+input ConsumerInput {
+  name: String!
+  chair: Float!
+  userId: Float!
 }

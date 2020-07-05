@@ -3,7 +3,7 @@
 ## Requisitos funcionais
 
 - [ ] O usuário pode inserir o código da mesa ou scanear o QR CODE já vinculado com a sua mesa
-- [ ] O usuário deve inserir seu telefone e seu nome
+- [x] O usuário deve inserir seu telefone, seu nome e sua mesa
 - [ ] O usuário pode adicionar ou remover acompanhantes
 - [ ] O usuário pode listar e filtrar as pizzas por tipo (salgada, doce, vegetariana, especiais)
 - [ ] O usuário pode pedir uma ou mais fatias de pizza por pessoa

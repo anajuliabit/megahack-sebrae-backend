@@ -6,10 +6,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import RepoModule from './repo.module';
 import UserResolver from './resolvers/user.resolver';
+import ConsumerResolver from './resolvers/consumer.resolver';
 
 import * as ormOptions from './config/orm';
 
-const gqlImports = [UserResolver];
+const gqlImports = [UserResolver, ConsumerResolver];
 @Module({
   imports: [
     TypeOrmModule.forRoot(ormOptions),

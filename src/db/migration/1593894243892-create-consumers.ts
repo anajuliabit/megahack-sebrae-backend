@@ -31,18 +31,6 @@ export class createConsumers1593894243892 implements MigrationInterface {
         type: 'integer',
         isNullable: false,
       },
-      {
-        name: 'created_at',
-        type: 'timestamptz',
-        isNullable: false,
-        default: 'now()',
-      },
-      {
-        name: 'updated_at',
-        type: 'timestamptz',
-        isNullable: false,
-        default: 'now()',
-      },
     ],
   });
 
