@@ -35,6 +35,7 @@ type Query {
 type Mutation {
   createUser(data: UserInput!): User!
   createConsumer(data: ConsumerInput!): Consumer!
+  deleteConsumer(id: Float!): Consumer!
 }
 
 input UserInput {

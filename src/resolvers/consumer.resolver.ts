@@ -10,6 +10,7 @@ import RepoService from 'src/repo.service';
 import Consumer from 'src/db/entity/consumer.entity';
 import ConsumerInput from './input/consumer.input';
 import User from 'src/db/entity/user.entity';
+import { DeleteResult } from 'typeorm';
 
 @Resolver(of => Consumer)
 export default class ConsumerResolver {
@@ -47,5 +48,16 @@ export default class ConsumerResolver {
   @ResolveProperty(() => User, { name: 'user' })
   public async getUser(@Parent() parent: Consumer): Promise<User> {
     return this.repoService.userRepo.findOne(parent.userId);
+  }
+
+  @Mutation(() => Consumer)
+  public async deleteConsumer(@Args('id') id: number): Promise<Consumer> {
+    const consumer: Promise<Consumer> = this.repoService.consumerRepo.findOneOrFail(
+      id,
+    );
+    if (consumer) {
+      await this.repoService.consumerRepo.delete(id);
+    }
+    return consumer;
   }
 }
