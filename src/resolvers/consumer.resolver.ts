@@ -3,14 +3,13 @@ import {
   Args,
   Query,
   Mutation,
-  ResolveProperty,
   Parent,
+  ResolveField,
 } from '@nestjs/graphql';
 import RepoService from 'src/repo.service';
 import Consumer from 'src/db/entity/consumer.entity';
 import ConsumerInput from './input/consumer.input';
 import User from 'src/db/entity/user.entity';
-import { DeleteResult } from 'typeorm';
 
 @Resolver(of => Consumer)
 export default class ConsumerResolver {
@@ -45,7 +44,7 @@ export default class ConsumerResolver {
     return await this.repoService.consumerRepo.save(consumer);
   }
 
-  @ResolveProperty(() => User, { name: 'user' })
+  @ResolveField(() => User, { name: 'user' })
   public async getUser(@Parent() parent: Consumer): Promise<User> {
     return this.repoService.userRepo.findOne(parent.userId);
   }

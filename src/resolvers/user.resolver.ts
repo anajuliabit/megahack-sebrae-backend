@@ -9,7 +9,9 @@ export default class UserResolver {
 
   @Query(() => [User])
   public async users(): Promise<User[]> {
-    return await this.repoService.userRepo.find({ relations: ['consumers'] });
+    return await this.repoService.userRepo.find({
+      relations: ['consumerConnection'],
+    });
   }
 
   @Query(() => User, { nullable: true })

@@ -7,10 +7,11 @@ import { AppService } from './app.service';
 import RepoModule from './repo.module';
 import UserResolver from './resolvers/user.resolver';
 import ConsumerResolver from './resolvers/consumer.resolver';
+import PizzaResolver from './resolvers/pizza.resolver';
 
 import * as ormOptions from './config/orm';
 
-const gqlImports = [UserResolver, ConsumerResolver];
+const gqlImports = [UserResolver, ConsumerResolver, PizzaResolver];
 @Module({
   imports: [
     TypeOrmModule.forRoot(ormOptions),

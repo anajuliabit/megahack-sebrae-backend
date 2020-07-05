@@ -1,4 +1,4 @@
-import { ObjectType, Field } from '@nestjs/graphql';
+import { ObjectType, Field, registerEnumType } from '@nestjs/graphql';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -7,15 +7,18 @@ import {
   OneToMany,
   UpdateDateColumn,
 } from 'typeorm';
-// import { TypePizza } from 'src/enum/type-pizza.enum';
 import RequestPizza from './request-pizza.entity';
 
-export enum TypePizza {
-  Salgada,
-  Doce,
-  Vegetariana,
-  Especial,
+export enum EnumPizza {
+  SALGADA,
+  DOCE,
+  VEGETARIANA,
+  ESPECIAL,
 }
+
+registerEnumType(EnumPizza, {
+  name: 'EnumPizza',
+});
 @ObjectType()
 @Entity({ name: 'pizza' })
 export default class Pizza {
@@ -31,21 +34,13 @@ export default class Pizza {
   @Column()
   description: string;
 
-  @Field()
+  @Field(() => EnumPizza)
   @Column()
-  type: TypePizza;
+  type: EnumPizza;
 
   @Field()
   @Column({ name: 'url_image' })
   urlImage: string;
-
-  @Field()
-  @CreateDateColumn({ name: 'created_at ' })
-  createdAt: Date;
-
-  @Field()
-  @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt: Date;
 
   @OneToMany(
     () => RequestPizza,

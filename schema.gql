@@ -2,6 +2,21 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Pizza {
+  id: Float!
+  name: String!
+  description: String!
+  type: EnumPizza!
+  urlImage: String!
+}
+
+enum EnumPizza {
+  SALGADA
+  DOCE
+  VEGETARIANA
+  ESPECIAL
+}
+
 type Consumer {
   id: Float!
   name: String!
@@ -30,12 +45,16 @@ type Query {
   consumers: [Consumer!]!
   getConsumerFromUser(id: Float!): [Consumer!]!
   consumer(id: Float!): Consumer
+  pizzas: [Pizza!]!
+  pizza(id: Float!): Pizza
 }
 
 type Mutation {
   createUser(data: UserInput!): User!
   createConsumer(data: ConsumerInput!): Consumer!
   deleteConsumer(id: Float!): Consumer!
+  createPizza(data: PizzaInput!): Pizza!
+  deletePizza(id: Float!): Pizza!
 }
 
 input UserInput {
@@ -48,4 +67,11 @@ input ConsumerInput {
   name: String!
   chair: Float!
   userId: Float!
+}
+
+input PizzaInput {
+  name: String!
+  description: String!
+  type: Float!
+  urlImage: String!
 }

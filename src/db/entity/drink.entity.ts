@@ -1,12 +1,5 @@
 import { ObjectType, Field } from '@nestjs/graphql';
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  CreateDateColumn,
-  OneToMany,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import RequestPizza from './request-pizza.entity';
 import RequestDrink from './request-drink.entity';
 
@@ -39,14 +32,6 @@ export default class Drink {
   @Field()
   @Column({ name: 'url_image' })
   urlImage: string;
-
-  @Field()
-  @CreateDateColumn({ name: 'created_at' })
-  createdAt: Date;
-
-  @Field()
-  @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt: Date;
 
   @OneToMany(
     () => RequestDrink,
