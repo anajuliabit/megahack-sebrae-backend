@@ -39,7 +39,7 @@ export class createRequest1593894718592 implements MigrationInterface {
       },
       {
         name: 'updated_at',
-        type: 'tymestamptz',
+        type: 'timestamptz',
         isNullable: false,
         default: 'now()',
       },

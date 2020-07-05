@@ -5,6 +5,7 @@ import {
   Column,
   CreateDateColumn,
   OneToMany,
+  UpdateDateColumn,
 } from 'typeorm';
 // import { TypePizza } from 'src/enum/type-pizza.enum';
 import RequestPizza from './request-pizza.entity';
@@ -35,7 +36,7 @@ export default class Pizza {
   type: TypePizza;
 
   @Field()
-  @Column('url_image')
+  @Column({ name: 'url_image' })
   urlImage: string;
 
   @Field()
@@ -43,7 +44,7 @@ export default class Pizza {
   createdAt: Date;
 
   @Field()
-  @CreateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
   @OneToMany(

@@ -7,6 +7,7 @@ import {
   ManyToOne,
   JoinColumn,
   OneToMany,
+  UpdateDateColumn,
 } from 'typeorm';
 import Consumer from './consumer.entity';
 import RequestPizza from './request-pizza.entity';
@@ -30,11 +31,11 @@ export default class Request {
   status: StatusRequest;
 
   @Field()
-  @CreateDateColumn({ name: 'created_at ' })
+  @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
   @Field()
-  @CreateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
   @ManyToOne(

@@ -4,10 +4,11 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  ManyToOne,
   OneToMany,
+  UpdateDateColumn,
 } from 'typeorm';
 import Consumer from './consumer.entity';
+import UserInput from 'src/resolvers/input/user.input';
 
 @ObjectType()
 @Entity({ name: 'users' })
@@ -29,11 +30,11 @@ export default class User {
   table: number;
 
   @Field()
-  @CreateDateColumn({ name: 'created_at ' })
+  @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
   @Field()
-  @CreateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
   @OneToMany(

@@ -37,7 +37,7 @@ export class createDrink1593896206646 implements MigrationInterface {
       },
       {
         name: 'updated_at',
-        type: 'tymestamptz',
+        type: 'timestamptz',
         isNullable: false,
         default: 'now()',
       },

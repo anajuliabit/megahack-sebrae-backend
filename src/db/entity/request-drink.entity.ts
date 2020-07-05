@@ -6,9 +6,10 @@ import {
   CreateDateColumn,
   ManyToOne,
   JoinColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import Request from './request.entity';
-import Drink from './drink';
+import Drink from './drink.entity';
 
 @ObjectType()
 @Entity({ name: 'request_drink' })
@@ -26,7 +27,7 @@ export default class RequestDrink {
   createdAt: Date;
 
   @Field()
-  @CreateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
   @ManyToOne(

@@ -5,6 +5,7 @@ import {
   Column,
   CreateDateColumn,
   OneToMany,
+  UpdateDateColumn,
 } from 'typeorm';
 import RequestPizza from './request-pizza.entity';
 import RequestDrink from './request-drink.entity';
@@ -36,15 +37,15 @@ export default class Drink {
   type: TypeDrink;
 
   @Field()
-  @Column('url_image')
+  @Column({ name: 'url_image' })
   urlImage: string;
 
   @Field()
-  @CreateDateColumn({ name: 'created_at ' })
+  @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
   @Field()
-  @CreateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
   @OneToMany(
