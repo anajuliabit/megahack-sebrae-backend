@@ -47,6 +47,7 @@ type Query {
   consumer(id: Float!): Consumer
   pizzas: [Pizza!]!
   pizza(id: Float!): Pizza
+  filterPizza(type: Float!): Pizza
 }
 
 type Mutation {

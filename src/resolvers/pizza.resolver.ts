@@ -2,6 +2,7 @@ import { Resolver, Args, Query, Mutation } from '@nestjs/graphql';
 import RepoService from 'src/repo.service';
 import Pizza from 'src/db/entity/pizza.entity';
 import PizzaInput from './input/pizza.input';
+import { EnumPizza } from '../db/entity/pizza.entity';
 
 @Resolver(Pizza)
 export default class PizzaResolver {
@@ -15,6 +16,11 @@ export default class PizzaResolver {
   @Query(() => Pizza, { nullable: true })
   public async pizza(@Args('id') id: number): Promise<Pizza> {
     return await this.repoService.pizzaRepo.findOne(id);
+  }
+
+  @Query(() => Pizza, { nullable: true })
+  public async filterPizza(@Args('type') type: EnumPizza): Promise<Pizza[]> {
+    return await this.repoService.pizzaRepo.find({ type });
   }
 
   @Mutation(() => Pizza)

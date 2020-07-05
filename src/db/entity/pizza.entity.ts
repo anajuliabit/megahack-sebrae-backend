@@ -1,12 +1,5 @@
 import { ObjectType, Field, registerEnumType } from '@nestjs/graphql';
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  CreateDateColumn,
-  OneToMany,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import RequestPizza from './request-pizza.entity';
 
 export enum EnumPizza {
