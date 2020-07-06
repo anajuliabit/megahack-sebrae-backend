@@ -3,7 +3,7 @@
     :pizza: <i>RodiEasy - Desafio SEBRAE</i>
   </h1>
   <p>
-Esta API foi desenvolvida durante o [MegaHack](http://megahack.com.br/) para o desafio SEBRAE cujo objetivo era a criação de soluções para reconsquistar o consumidor de serviços de alimentação pós/durante a pandemia.
+Esta API foi desenvolvida durante o <a href="http://megahack.com.br/"><span>MegaHack</span></a> para o desafio SEBRAE cujo objetivo era a criação de soluções para reconsquistar o consumidor de serviços de alimentação pós/durante a pandemia.
 </p>
 
   <div>
