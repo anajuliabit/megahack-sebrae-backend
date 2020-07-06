@@ -2,7 +2,6 @@
 
 ## Requisitos funcionais
 
-- [ ] O usuário pode inserir o código da mesa ou scanear o QR CODE já vinculado com a sua mesa
 - [x] O usuário deve inserir seu telefone, seu nome e sua mesa
 - [x] O usuário pode adicionar ou remover acompanhantes
 - [x] O usuário com a permissão de admin pode criar e excluir pizzas
@@ -11,8 +10,6 @@
 - [ ] O usuário pode listar e filtrar as bebidas por tipo (refrigerante, suco, vinho, cerveja)
 - [ ] O usuário pode pedir uma ou mais bebida por pessoa
 - [ ] O usuário pode visualizar a comanda e realizar pagamento individual, valor total ou dividir igualmente entre todos da mesa
-
-## Requisitos não funcionais
 
 - Nest.js
 - GraphQL
